@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class DemoService {
     public String process(int id) {
-        return "Result with id = " + id;
+        throw new RuntimeException("Under construction");
+//        return "Result with id = " + id;
     }
 }
