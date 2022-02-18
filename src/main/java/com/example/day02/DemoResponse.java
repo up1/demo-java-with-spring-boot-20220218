@@ -4,6 +4,14 @@ public class DemoResponse{
 	private int code;
 	private String message;
 
+	public DemoResponse() {
+	}
+
+	public DemoResponse(int code, String message) {
+		this.code = code;
+		this.message = message;
+	}
+
 	public void setCode(int code){
 		this.code = code;
 	}

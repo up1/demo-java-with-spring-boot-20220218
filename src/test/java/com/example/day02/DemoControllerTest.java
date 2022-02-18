@@ -19,7 +19,7 @@ class DemoControllerTest {
         // Act :: call api
         DemoResponse result = restTemplate.getForObject("/demo/1", DemoResponse.class);
         // Assert :: Verify
-        assertEquals(10, result.getCode());
+        assertEquals(0, result.getCode());
         assertNull(result.getMessage());
     }
 
