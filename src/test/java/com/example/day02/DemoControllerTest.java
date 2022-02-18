@@ -6,8 +6,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.springframework.boot.test.context.SpringBootTest.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
+import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 class DemoControllerTest {
@@ -20,11 +21,16 @@ class DemoControllerTest {
 
     @Test
     void xxxx() {
+        // Arrange
+        // Create stub
+        when(demoService.process(100)).thenReturn("Result with id = 100");
+
         // Act :: call api
-        DemoResponse result = restTemplate.getForObject("/demo/1", DemoResponse.class);
+        DemoResponse result = restTemplate.getForObject("/demo/100",
+                DemoResponse.class);
         // Assert :: Verify
-        assertEquals(1, result.getCode());
-        assertEquals("Result with id = 1", result.getMessage());
+        assertEquals(100, result.getCode());
+        assertEquals("Result with id = 100", result.getMessage());
     }
 
 }
